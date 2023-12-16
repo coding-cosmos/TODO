@@ -6,6 +6,9 @@ class Project{
     addTodo(todo) {
         this.todoList.push(todo);
     }
+    removeTodo(index) {
+        this.todoList.splice(index, 1);
+    }
     getProject() {
         return ({
             todos: this.todoList,
@@ -13,3 +16,5 @@ class Project{
         });
     }
 }
+
+export default Project;
