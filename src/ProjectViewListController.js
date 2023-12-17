@@ -3,7 +3,7 @@ import Data from "./data";
 
 class ProjectViewListController {
   // stores the id of previous project
-  static prvID;
+  static prvID =0;
 
   // add editable view to projectList
   static addProjectView() {
