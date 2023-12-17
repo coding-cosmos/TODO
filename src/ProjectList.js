@@ -1,14 +1,12 @@
 class ProjectList{
-    constructor() {
-        this.projectList = []
+   static list = []
+   static addProject(project) {
+        ProjectList.list.push(project);
     }
-    addProject(project) {
-        this.projectList.push(project);
+    static removeProject(index) {
+        ProjectList.list.splice(index, 1);
     }
-    removeProject(index) {
-        this.projectList.splice(index, 1);
-    }
-    getProjects() {
-        return this.projectList;
+    static getProjects() {
+        return ProjectList.list;
     }
 }
