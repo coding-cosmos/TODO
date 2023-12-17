@@ -1,6 +1,8 @@
 import './styles/sidebar-styles.css';
-import AddButton from './AddButton.js';
+import ProjectView from './ProjectView.js';
 import ProjectViewListController from './ProjectViewListController.js';
+import AddButton from './AddButton.js';
+
 
 function Sidebar() {
     const sideBar = document.createElement('div');
@@ -17,9 +19,12 @@ function Sidebar() {
     const projectListDiv = document.createElement('div');
     projectListDiv.className = "project-list";
 
-
+    const defaultProject = new ProjectView(false,"MY PROJECT");
+    projectListDiv.appendChild(defaultProject);
+   
+    
     // Add new project
-    const addBtnDiv = new AddButton(ProjectViewListController.addProjectView);
+    const addBtnDiv = new AddButton(ProjectViewListController.addProject);
 
 
     sideBar.appendChild(headingDiv);
