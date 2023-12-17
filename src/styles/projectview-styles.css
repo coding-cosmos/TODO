@@ -1,5 +1,9 @@
+*{
+    --secondary-bg-clr:#2196f3;
+}
+
 .item{
-    border: 2px solid green;
+    border: 1px solid #0d47a1;
     height: 24px;
     width: 20vw;
     display: flex;
@@ -8,9 +12,17 @@
     border-radius: 24px;
     padding: 12px;
     justify-content: center;
+
+    background-color: var(--secondary-bg-clr);
 }
 
 .name{
-    background-color: white;
+    background-color: var(--secondary-bg-clr);
     border: none;
+    color: white;
+    outline: none;
+    font: bolder;
+}
+.name::placeholder{
+    color: #bbdefb;
 }
