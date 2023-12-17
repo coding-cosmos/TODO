@@ -11,6 +11,7 @@ class ProjectView {
     this.delIcon = document.createElement("img");
     this.delIcon.src = del;
     this.delIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
       ProjectViewListController.removeProject(e.target.parentElement);
     });
 
