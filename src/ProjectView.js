@@ -23,6 +23,7 @@ class ProjectView {
     if (!editable) {
       this.nameInput.disabled = true;
       this.nameInput.value = name;
+      this.nameInput.style = "pointer-events:none";
       this.projectDiv.appendChild(this.nameInput);
       this.projectDiv.appendChild(this.delIcon);
     } else {
