@@ -14,6 +14,7 @@
     justify-content: center;
 
     background-color: var(--secondary-bg-clr);
+    opacity: .6;
 }
 
 .name{
@@ -25,4 +26,7 @@
 }
 .name::placeholder{
     color: #bbdefb;
+}
+.selected{
+    opacity: 1;
 }
