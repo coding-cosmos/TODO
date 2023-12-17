@@ -3,8 +3,8 @@ class Project{
         this.todoList = [];
         this.name = name;
     }
-    addTodo(todo) {
-        this.todoList.push(todo);
+    addTodo(todo,id) {
+        this.todoList.push({todo,id});
     }
     removeTodo(index) {
         this.todoList.splice(index, 1);
