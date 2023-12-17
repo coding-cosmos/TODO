@@ -3,7 +3,7 @@ import Data from "./data";
 
 class ProjectViewListController {
   // stores the id of previous project
-  static prvID =0;
+  static prvID = 0;
 
   // add editable view to projectList
   static addProjectView() {
@@ -46,7 +46,7 @@ class ProjectViewListController {
     const projectList = Data.getProjectList();
 
     // Update UI
-    projectList.forEach((project) => {
+    projectList.forEach((project, index) => {
       ProjectViewListController.prvID = project.projectID;
       const projectView = new ProjectView(
         false,
@@ -54,8 +54,21 @@ class ProjectViewListController {
         project.projectID
       );
 
+      projectView.addEventListener("click", (event) => {
+        ProjectViewListController.select(event.target);
+      });
+
+      if (index == projectList.length - 1) {
+        projectView.classList = "item selected";
+      }
       projectViewList.append(projectView);
     });
+  }
+
+  static select(element) {
+    const selectedView = document.querySelector(".selected");
+    selectedView.classList = "item";
+    element.classList = "item selected";
   }
 }
 
