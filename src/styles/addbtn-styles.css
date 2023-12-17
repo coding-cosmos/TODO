@@ -1,3 +1,7 @@
+*{
+    --secondary-bg-clr:#2196f3;
+}
+
 .btn-div {
     align-self: flex-end;
     margin: 16px;
@@ -8,4 +12,8 @@
     border-radius: 72px;
     padding: 2px 14px;
     font-size: 2em;
+
+    background-color: var(--secondary-bg-clr);
+    color: white;
+    border: 0px;
 }
