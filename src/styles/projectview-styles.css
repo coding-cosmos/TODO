@@ -1,0 +1,16 @@
+.item{
+    border: 2px solid green;
+    height: 24px;
+    width: 20vw;
+    display: flex;
+    gap: 8px;
+    margin: 8px;
+    border-radius: 24px;
+    padding: 12px;
+    justify-content: center;
+}
+
+.name{
+    background-color: white;
+    border: none;
+}
