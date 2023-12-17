@@ -8,7 +8,7 @@ function render() {
     const container = document.querySelector('#container');
     container.appendChild(Sidebar());
      container.appendChild(Main());
-    ProjectViewListController.renderData();
+    ProjectViewListController.renderProjectList();
    
 }
 render();

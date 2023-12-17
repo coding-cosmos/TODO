@@ -24,7 +24,7 @@ class ProjectViewListController {
     Data.removeProject(id);
 
     // update UI
-    ProjectViewListController.renderData();
+    ProjectViewListController.renderProjectList();
   }
 
   static addProject(nameInput) {
@@ -32,11 +32,11 @@ class ProjectViewListController {
     Data.addProject(nameInput.value, nameInput.getAttribute("data-projectID"));
 
     // Updates UI
-    ProjectViewListController.renderData();
+    ProjectViewListController.renderProjectList();
   }
 
   // Updates UI
-  static renderData() {
+  static renderProjectList() {
     const projectViewList = document.querySelector(".project-list");
 
     // Clears the list
