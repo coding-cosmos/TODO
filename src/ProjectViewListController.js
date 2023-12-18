@@ -1,3 +1,4 @@
+import MainController from "./MainController";
 import ProjectView from "./ProjectView";
 import Data from "./data";
 
@@ -47,18 +48,18 @@ class ProjectViewListController {
 
     // Update UI
     projectList.forEach((project, index) => {
-      ProjectViewListController.prvID = project.projectID;
+      ProjectViewListController.prvID = project.id;
       const projectView = new ProjectView(
         false,
-        project.project.name,
-        project.projectID
+        project.name,
+        project.id
       );
 
       projectView.addEventListener("click", (event) => {
         ProjectViewListController.select(event.target);
       });
 
-      if (index == projectList.length - 1) {
+      if (index == 0) {
         projectView.classList = "item selected";
       }
       projectViewList.append(projectView);
@@ -67,7 +68,7 @@ class ProjectViewListController {
 
   static select(element) {
     const selectedView = document.querySelector(".selected");
-    selectedView.classList = "item";
+    (selectedView)? selectedView.classList = "item":"";
     element.classList = "item selected";
   }
 }
