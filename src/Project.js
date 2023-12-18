@@ -1,7 +1,8 @@
 class Project{
-    constructor(name) {
+    constructor(name,id) {
         this.todoList = [];
         this.name = name;
+        this.id = id;
     }
     addTodo(todo,id) {
         this.todoList.push({todo,id});
@@ -12,7 +13,8 @@ class Project{
     getProject() {
         return ({
             todos: this.todoList,
-            name: this.name
+            name: this.name,
+            id: this.id
         });
     }
 }
