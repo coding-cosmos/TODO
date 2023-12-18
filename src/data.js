@@ -4,14 +4,14 @@ import ProjectList from "./ProjectList";
 
 if (localStorage.length == 0) {
   // Add default project if localStorage is empty
-  ProjectList.addProject(new Project("My Project"), 0);
+  ProjectList.addProject("My Project",0);
   localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
 } else {
   // copy the projects from localStorage
   JSON.
     parse(localStorage.getItem("projects"))
     .forEach((project) => {
-    ProjectList.addProject(project.project, project.projectID);
+    ProjectList.addProject(project.name,project.id);
   });
 }
 
@@ -21,14 +21,20 @@ class Data {
   }
 
   static addProject(name, id) {
-    ProjectList.addProject(new Project(name), id);
+    // Add in ProjectList
+    ProjectList.addProject(name,id);
     console.log(ProjectList.getProjects());
+
+    //Add in localStorage
     localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
   }
 
   static removeProject(id) {
+    // Remove from ProjectList
     ProjectList.removeProject(id);
     console.log(ProjectList.getProjects());
+
+    // Update localStorage 
     localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
   }
 }
