@@ -37,6 +37,22 @@ class Data {
     // Update localStorage 
     localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
   }
+
+  static storeSelctedProjectId() {
+    const selectedProjectDiv = document.querySelector('.selected');
+    if (selectedProjectDiv) {
+       const id = selectedProjectDiv
+         .querySelector("input")
+         .getAttribute("data-projectID");
+       localStorage.setItem("selectedID", `${id}`);
+       console.log(Data.getSelctedProjectId());
+    }
+  }
+
+  static getSelctedProjectId() {
+    return localStorage.getItem('selectedID');
+  }
+  
 }
 
 export default Data;
