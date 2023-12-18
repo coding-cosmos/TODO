@@ -1,15 +1,20 @@
+import Project from './Project';
+
 class ProjectList{
-   static list = []
-   static addProject(project,id) {
-        ProjectList.list.push({project: project,projectID: id});
+    static list = []
+    
+    static addProject(name,id) {
+        ProjectList.list.push(new Project(name,id));
     }
-    static removeProject(projectID) {
-        ProjectList.list.forEach((project) => {
-            if (project.projectID == projectID) {
-               ProjectList.list.splice(ProjectList.list.indexOf(project),1); 
+ 
+    static removeProject(id) {
+        ProjectList.list.forEach((project, index) => {
+            if (project.id == id) {
+                ProjectList.list.splice(index, 1);
             }
-        })
+        });
     }
+
     static getProjects() {
         return ProjectList.list;
     }
