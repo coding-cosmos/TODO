@@ -26,6 +26,7 @@ class ProjectViewListController {
 
     // update UI
     ProjectViewListController.renderProjectList();
+    MainController.renderMain();
   }
 
   static addProject(nameInput) {
@@ -33,7 +34,9 @@ class ProjectViewListController {
     Data.addProject(nameInput.value, nameInput.getAttribute("data-projectID"));
 
     // Updates UI
+    // Data.storeSelctedProjectId();
     ProjectViewListController.renderProjectList();
+    MainController.renderMain();
   }
 
   // Updates UI
@@ -59,7 +62,7 @@ class ProjectViewListController {
         ProjectViewListController.select(event.target);
       });
 
-      if (index == 0) {
+      if (Data.getSelctedProjectId()==project.id) {
         projectView.classList = "item selected";
       }
       projectViewList.append(projectView);
@@ -70,6 +73,8 @@ class ProjectViewListController {
     const selectedView = document.querySelector(".selected");
     (selectedView)? selectedView.classList = "item":"";
     element.classList = "item selected";
+    MainController.renderMain();
+    Data.storeSelctedProjectId();
   }
 }
 
