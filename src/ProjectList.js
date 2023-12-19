@@ -3,8 +3,8 @@ import Project from './Project';
 class ProjectList{
     static list = []
     
-    static addProject(name,id) {
-        ProjectList.list.push(new Project(name,id));
+    static addProject(name,id,todoList) {
+        ProjectList.list.push(new Project(name,id,todoList));
     }
  
     static removeProject(id) {
