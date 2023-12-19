@@ -1,0 +1,64 @@
+*{
+    --border-clr:#0d47a1;
+    --bg-clr:#e3f2fd;
+}
+
+.todo{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    border: 2px solid var(--border-clr);
+    margin: 16px;
+    padding: 4px;
+    align-items: center;
+    width: 55vw;
+    border-radius: 24px;
+    background-color: var(--bg-clr);
+}
+.todo>.title{
+    flex-grow: 4;
+    align-self: center;
+    min-width: 30vw;
+    border-left: 2px solid var(--border-clr);
+    border-right: 2px solid var(--border-clr);
+    padding: 4px;
+
+}
+.todo>.todo-status-field{
+    align-self: center;
+    flex: 0;
+}
+
+.todo>.duedate{
+    flex-grow: 2;
+    display: flex;
+    border-right: 2px solid black;
+    padding: 4px;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.icons,.edit,.detail,.delete{
+    display: flex;
+    align-items: center;
+}
+
+.todo>.icons{
+    flex-grow: 1;
+    gap: 12px;
+}
+.status>[type="checkbox"] {
+    height: 20px;
+    width: 24px;
+    accent-color: var(--border-clr);
+}
+.status{
+    align-self: center;
+}
+
+
+
+
+
