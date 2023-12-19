@@ -73,8 +73,9 @@ class ProjectViewListController {
     const selectedView = document.querySelector(".selected");
     (selectedView)? selectedView.classList = "item":"";
     element.classList = "item selected";
-    MainController.renderMain();
+
     Data.storeSelctedProjectId();
+    MainController.renderMain();
   }
 }
 
