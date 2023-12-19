@@ -1,19 +1,15 @@
-import Project from "./Project";
 import ProjectList from "./ProjectList";
-
 
 if (localStorage.length == 0) {
   // Add default project if localStorage is empty
-  ProjectList.addProject("My Project",0,[]);
+  ProjectList.addProject("My Project", 0, []);
   localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
 } else {
   // copy the projects from localStorage
 
-  JSON.
-    parse(localStorage.getItem("projects"))
-    .forEach((project) => {
-    ProjectList.addProject(project.name,project.id,project.todoList);
-    });
+  JSON.parse(localStorage.getItem("projects")).forEach((project) => {
+    ProjectList.addProject(project.name, project.id, project.todoList);
+  });
   console.log(ProjectList.getProjects());
 }
 
@@ -24,7 +20,7 @@ class Data {
 
   static addProject(name, id) {
     // Add in ProjectList
-    ProjectList.addProject(name,id,[]);
+    ProjectList.addProject(name, id, []);
     console.log(ProjectList.getProjects());
 
     //Add in localStorage
@@ -36,32 +32,49 @@ class Data {
     ProjectList.removeProject(id);
     console.log(ProjectList.getProjects());
 
-    // Update localStorage 
+    // Update localStorage
     localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
   }
 
   static storeSelctedProjectId() {
-    const selectedProjectDiv = document.querySelector('.selected');
+    const selectedProjectDiv = document.querySelector(".selected");
     if (selectedProjectDiv) {
-       const id = selectedProjectDiv
-         .querySelector("input")
-         .getAttribute("data-projectID");
-       localStorage.setItem("selectedID", `${id}`);
+      const id = selectedProjectDiv
+        .querySelector("input")
+        .getAttribute("data-projectID");
+      localStorage.setItem("selectedID", `${id}`);
       //  console.log(Data.getSelctedProjectId());
     }
   }
 
   static getSelctedProjectId() {
-    return localStorage.getItem('selectedID');
+    return localStorage.getItem("selectedID");
   }
 
   static addTodo(id, todo) {
     // Add in ProjectList
-    ProjectList.getProjects().find((project) => project.id == id).todoList.push(todo);
+    ProjectList.getProjects()
+      .find((project) => project.id == id)
+      .todoList.push(todo);
     // Add in localStorage
     localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
   }
+
+  static removeTodo(id, index) {
+    ProjectList.getProjects()
+      .find((project) => project.id == id)
+      .todoList.splice(index, 1);
+
+    localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
+  }
+
+  static editTodo(id, todo, index) {
+    ProjectList.getProjects()
+      .find((project) => project.id == id)
+      .todoList.splice(index,1,todo);  
   
+    localStorage.setItem("projects", JSON.stringify(ProjectList.getProjects()));
+  }
 }
 
 export default Data;
