@@ -1,6 +1,6 @@
 import './styles/main-styles.css';
-import TodoController from './TodoController';
 import AddButton from './AddButton';
+import MainController from './MainController';
 
 function Main() {
     const main = document.createElement('div');
@@ -9,7 +9,6 @@ function Main() {
     const headingDiv = document.createElement('div');
     headingDiv.className = "heading";
     const heading = document.createElement('h1');
-    heading.innerText = "MY project";
     headingDiv.appendChild(heading);
 
     const todoListDiv = document.createElement('div');
@@ -17,13 +16,12 @@ function Main() {
 
     const addBtnDiv = document.createElement('div');
     addBtnDiv.className = "add-btn";
-    addBtnDiv.appendChild(AddButton());
+    addBtnDiv.appendChild(AddButton(MainController.showTodoModal));
 
     main.appendChild(headingDiv);
     main.appendChild(todoListDiv);
     main.appendChild(addBtnDiv);
-
-
+  
     return main;
 }
 
